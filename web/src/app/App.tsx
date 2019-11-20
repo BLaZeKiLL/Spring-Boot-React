@@ -15,7 +15,7 @@ const App: React.FC = () => {
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer">
-          Learn React
+          Spring Prod Run
         </a>
       </header>
     </div>

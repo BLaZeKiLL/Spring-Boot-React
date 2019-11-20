@@ -6,14 +6,14 @@ node {
     version = "12.13.0"
     yarnVersion = "1.19.1"
     download = false
-    workDir = file("${project.buildDir}../nodejs")
-    yarnWorkDir = file("${project.buildDir}../yarn")
+    workDir = file("${project.buildDir}/../../build/nodejs")
+    yarnWorkDir = file("${project.buildDir}/../../build/yarn")
     nodeModulesDir = file("${project.projectDir}")
 }
 
 task copyWebApp(type: Copy) {
-    from 'src/main/webapp/build'
-    into 'build/resources/main/static'
+    from "${project.projectDir}/build"
+    into "${project.projectDir}/../api/build/resources/main/static"
 }
 
 yarn_build.dependsOn 'yarn_install'

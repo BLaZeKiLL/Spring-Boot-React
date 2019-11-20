@@ -19,4 +19,18 @@ test {
     useJUnitPlatform()
 }
 
-compileJava.dependsOn 'web:copyWebApp'
+task prodRun {
+    group 'application'
+    dependsOn ':web:copyWebApp'
+    dependsOn ':api:bootRun'
+    tasks.bootRun.mustRunAfter ':web:copyWebApp'
+}
+
+task prodJar {
+    group 'build'
+    dependsOn ':web:copyWebApp'
+    dependsOn ':api:bootJar'
+    tasks.bootJar.mustRunAfter ':web:copyWebApp'
+}
+
+
